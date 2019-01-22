@@ -33,7 +33,7 @@ export class MyMPService {
     }
 
     public constituency(constituency: string): IMemberOfParliment | null {
-        const myMPDetails  = mpDetails.find(mp => mp.area === constituency) as IMPDetailsAPIDTO;
+        const myMPDetails  = mpDetails.find(mp => mp.area.toLocaleLowerCase() === constituency.toLocaleLowerCase()) as IMPDetailsAPIDTO;
         if(myMPDetails) {
             return this.mapper.convertToMemberOfParliment(myMPDetails);
         }
