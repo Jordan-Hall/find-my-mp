@@ -6,7 +6,7 @@ import { IMemberOfParliment } from '../model/member-of-parliment.interface';
 
 const fetch = require('node-fetch');
 const xml2js = require('xml2js');
-const mpDetails: IMPDetailsAPIDTO[] = require('../data/mp-details.json');
+import mpDetails = require('../data/mp-details.json');
 
 @Injectable()
 export class MyMPService {
@@ -28,12 +28,12 @@ export class MyMPService {
                 return Promise.reject(null);
             }
         } catch(error) {
-            Promise.reject(error);
+            Promise.reject(null);
         }
     }
 
     public constituency(constituency: string): IMemberOfParliment | null {
-        const myMPDetails: IMPDetailsAPIDTO  = mpDetails.find(mp => mp.area === constituency);
+        const myMPDetails  = mpDetails.find(mp => mp.area === constituency) as IMPDetailsAPIDTO;
         if(myMPDetails) {
             return this.mapper.convertToMemberOfParliment(myMPDetails);
         }
