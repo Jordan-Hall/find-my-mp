@@ -4,7 +4,9 @@
   "description": "Find your local MP",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/servers/nest.server.ts"
+    "start": "ts-node src/servers/nest.server.ts",
+    "prestart:prod": "tsc",
+    "start:prod": "node dist/main.js"
   },
   "author": "Tell Them Again",
   "license": "ISC",
