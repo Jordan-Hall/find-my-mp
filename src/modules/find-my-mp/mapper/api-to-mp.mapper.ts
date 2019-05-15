@@ -10,7 +10,7 @@ export class APIToMPMapper {
             chamber: data.chamber,
             constituency: data.area,
             email: data.email,
-            gender: data.gender, // STFU lefites, we have assumed gender ;)
+            gender: data.gender,
             image: data.image,
             name: data.name,
             politicalParty: data.group
